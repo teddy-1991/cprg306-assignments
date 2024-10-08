@@ -12,7 +12,7 @@ export default function NewItem() {
         const item = { name, quantity, category };
 
         console.log(item);
-        alert(`Name: ${item.name}, Quantity: ${item.quantity}, Category: ${item.category}`);
+        alert(`Item Name: ${item.name}, Quantity: ${item.quantity}, Category: ${item.category} is/are added to your cart!`);
 
         setName("");
         setQuantity(1);
