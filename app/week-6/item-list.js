@@ -1,44 +1,44 @@
-"use client";
+'use client';
 
-import {useState} from 'react';
+import { useState } from 'react';
 import Item from './item.js';
-import itemJson from './items.json'; 
+import items from './items.json';
+
 
 export default function ItemList() {
-  
-  let copyItemJson = [...itemJson];
+    
   const [sortBy, setSortBy] = useState("name");
 
-  const sortedItem = copyItemJson.sort((a, b) => {
-    
+  let copyItemsList = [...items];
+
+  const sortedItemsList = copyItemsList.sort((a, b) => {
+
     if (sortBy === "category") {
       return a.category.localeCompare(b.category);
     }
-
     return a.name.localeCompare(b.name);
-    
-  });
+  })
 
   return (
-    <div>
-      <div className="flex justify-start align-middle mb-2">
-        <h2 className="font-bold">Sort By: </h2>
-        <button className={`ml-2 p-2 rounded-xl ${sortBy === "name" ? "bg-sky-950 text-white" : "bg-sky-200"}`} 
+    <div className="flex justify-center flex-col">
+      <div className="flex justify-center">
+        <h2>Sort By:</h2>
+        <button className={`rounded-xl ml-1 p-2 ${sortBy === "name" ? "bg-sky-700 text-white" : "bg-sky-300"}`} 
         onClick={() => setSortBy("name")}>NAME</button>
-        
-        <button className={`ml-2 p-2 rounded-xl ${sortBy === "category" ? "bg-sky-950 text-white" : "bg-sky-200"}`}
+        <button className={`rounded-xl ml-1 p-2 ${sortBy === "category" ? "bg-sky-700 text-white" : "bg-sky-300"}`} 
         onClick={() => setSortBy("category")}>CATEGORY</button>
       </div>
-      <ul>
+      <div className = "flex justify-center">
+        <ul>
         
-        {sortedItem.map((item) => (
-          <div key={item.id}>
-            <Item name={item.name} quantity={item.quantity} category={item.category} />    
+        {sortedItemsList.map((items) => (
+          <div key={items.id}>
+          <Item name={items.name} quantity={items.quantity} category={items.category} />
           </div>
-        ))
-        }
+        ))}
         
-      </ul>
+        </ul>
+      </div>
     </div>
   );
 }
