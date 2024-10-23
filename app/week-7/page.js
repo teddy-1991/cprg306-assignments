@@ -6,11 +6,12 @@ import { useState } from 'react';
 
 export default function Page() {
     
-    const [items, setItems] = useState([...itemsData]);
+    const [items, setItems] = useState(itemsData);
     
-    function handleAddItem(newItem) {
-        setItems([newItem,...items]);
-    }
+    const handleAddItem = (newItem) => {
+        setItems([...items,newItem]);
+    };
+
 
     return (
         <main>
