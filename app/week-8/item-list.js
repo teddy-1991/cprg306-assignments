@@ -32,7 +32,7 @@ export default function ItemList({ items, onItemSelect }) {
   });
 
   return (
-    <div className="flex justify-center flex-col">
+    <div className="bg-sky-200 m-1 p-1 rounded-xl">
       <div className="flex justify-center items-center">
         <h2>Sort By:</h2>
         <button className={`rounded-xl ml-1 p-2 ${sortBy === "name" ? "bg-sky-700 text-white" : "bg-sky-300"}`} 

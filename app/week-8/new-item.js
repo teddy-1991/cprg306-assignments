@@ -34,7 +34,7 @@ export default function NewItem({ onAddItem }) {
 
     return (
         <div className = "flex justify-center">
-            <form className="p-2 m-4 bg-sky-200 text-black max-w-sm w-full h-auto"onSubmit={handleSubmit}>
+            <form className="m-1 p-1 rounded-xl bg-sky-200 text-black max-w-sm w-full h-auto"onSubmit={handleSubmit}>
                 <label htmlFor="name">
                     <input className="w-full mt-1 border-2 border-gray-300 p-2 rounded-lg" id="name" type="text" placeholder="Item Name" value={name} required onChange={(event) => setName(event.target.value)} />
                 </label>
@@ -65,3 +65,4 @@ export default function NewItem({ onAddItem }) {
         </div>
     )
 }
+    
