@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Item from './item.js';
 
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onItemSelect }) {
     
   const [sortBy, setSortBy] = useState("name");
 
@@ -29,7 +29,7 @@ export default function ItemList({ items }) {
     }
 
     return a.name.localeCompare(b.name);
-  })
+  });
 
   return (
     <div className="flex justify-center flex-col">
@@ -61,9 +61,9 @@ export default function ItemList({ items }) {
             </ul>
           </div>
         )) */ }
-        {sortedItemsList.map((items) => (
-          <div key={items.id}>
-          <Item name={items.name} quantity={items.quantity} category={items.category} />
+        {sortedItemsList.map((item) => (
+          <div key={item.id}>
+          <Item onSelect={() => onItemSelect(item.name)} name={item.name} quantity={item.quantity} category={item.category} />
           </div>
         ))}
         
