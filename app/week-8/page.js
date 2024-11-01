@@ -24,11 +24,11 @@ export default function Page() {
             <div>
                 <h1 className = "text-4xl font-bold my-5">Shopping List</h1>
                 <div className = "flex">
-                    <div className = "w-1/4 bg-sky-950">
+                    <div className = "w-1/4">
                         <NewItem onAddItem={handleAddItem} />
                         <ItemList items={items} onItemSelect={handleItemSelect} />
                     </div>
-                    <div className = "w-1/4 bg-black text-white">
+                    <div className = "w-1/4 bg-sky-200 rounded-xl m-1 p-1 h-1/2">
                         <MealIdeas ingredient={selectedItemName} />
                     </div>
                 </div>

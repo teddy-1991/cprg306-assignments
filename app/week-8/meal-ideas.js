@@ -7,10 +7,7 @@ const MealIdeas = ({ingredient}) => {
 
     async function loadMealIdeas() {
         let getData = await fetchMealIdeas(ingredient);
-        
         setMeals(getData);
-        
-        
     }
 
     useEffect(() => {
@@ -18,17 +15,21 @@ const MealIdeas = ({ingredient}) => {
         loadMealIdeas();
        } 
     }, [ingredient]);
-
     return (
-        <div className = "m-5">
-            <div className = "m-2">
+        <div className = "m-1">
+            <div>
                 <h1 className = "font-bold text-2xl">Meal Ideas</h1>
+                <p>{meals === null ? `No meal ideas found for ${ingredient}.` : 
+                    meals.length > 0 ? `Here are some meal ideas using ${ingredient}:` :
+                    "Select an item to see meal ideas."}</p>
                 <ul>
-                    {meals && meals.map((meal) => (
+                    {meals && meals.length > 0 ? (
+                        meals.map((meal) => (
                     <li key={meal.idMeal}>
                         {meal.strMeal}
                     </li>
-                    ))}
+                    )) 
+                ) : null}
                 </ul>
             </div>
         </div>

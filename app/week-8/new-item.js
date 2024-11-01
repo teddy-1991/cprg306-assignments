@@ -36,7 +36,7 @@ export default function NewItem({ onAddItem }) {
         <div className = "flex justify-center">
             <form className="m-1 p-1 rounded-xl bg-sky-200 text-black max-w-sm w-full h-auto"onSubmit={handleSubmit}>
                 <label htmlFor="name">
-                    <input className="w-full mt-1 border-2 border-gray-300 p-2 rounded-lg" id="name" type="text" placeholder="Item Name" value={name} required onChange={(event) => setName(event.target.value)} />
+                    <input className="w-full mt-1 border-2 border-black p-2 rounded-lg" id="name" type="text" placeholder="Item Name" value={name} required onChange={(event) => setName(event.target.value)} />
                 </label>
 
                 <div className = "flex justify-evenly mt-2">
@@ -45,7 +45,7 @@ export default function NewItem({ onAddItem }) {
                         <button type="button" onClick={decrement} disabled={quantity <= 1}><img className = "w-7 h-5" src="https://img.icons8.com/?size=48&id=nEvcFXQg4vYw&format=png" alt="minus icon" /></button>
                         <button type="button" onClick={increment} disabled={quantity >= 20}><img className = "w-7 h-5" src="https://img.icons8.com/?size=48&id=nrj2gY9kMw2T&format=png" alt="plus icon" /></button>        
                     </div>
-                    <select className="ml-1 border-2 border-gray-300 p-2 rounded-lg" name="category" id="category-list" value={category} required onChange={(event) => setCategory(event.target.value)}>
+                    <select className="ml-1 border-2 border-black p-2 rounded-lg" name="category" id="category-list" value={category} required onChange={(event) => setCategory(event.target.value)}>
                         <option value="Produce">produce</option>
                         <option value="Dairy">dairy</option>
                         <option value="Bakery">bakery</option>
