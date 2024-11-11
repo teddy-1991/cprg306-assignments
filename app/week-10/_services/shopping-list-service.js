@@ -1,4 +1,4 @@
-import { db } from "../../week-9/_utils/firebase";
+import { db } from "../../week-10/_utils/firebase";
 import { collection, getDocs, addDoc, query } from "firebase/firestore";
 
 export const getItems = async (userId) => {
@@ -28,3 +28,4 @@ try {
     throw error;
 }
 };
+

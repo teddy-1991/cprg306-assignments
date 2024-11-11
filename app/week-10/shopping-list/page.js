@@ -4,8 +4,8 @@ import NewItem from './new-item';
 import MealIdeas from './meal-ideas';
 import { useState, useEffect } from 'react';
 import { useUserAuth } from '../_utils/auth-context';
-import getItems from '../_services/shopping-list-service';
-import addItem from '../_services/shopping-list-service';
+import { getItems, addItem } from '../_services/shopping-list-service';
+
 
 export default function Page() {
     
@@ -18,9 +18,8 @@ export default function Page() {
         if (!user) return;
 
         try {
-            const newItemData = { name: itemName };
-            const itemId = await addItem(user.uid, newItemData);
-            const addedItem = { id: itemId, ...newItemData };
+            const itemId = await addItem(user.uid, newItem);
+            const addedItem = { id: itemId, ...newItem };
             setItems([...items, addedItem]);
             setNewItem("");
         } catch (error) {
@@ -33,7 +32,7 @@ export default function Page() {
         setSelectedItemName(cleanItemName);
     };
 
-    const loadItems = async (user, setItems) => {
+    const loadItems = async () => {
         try {
             const items = await getItems(user.uid);
             setItems(items);
@@ -43,7 +42,9 @@ export default function Page() {
     };
 
     useEffect(() => {
-        loadItems();
+        if (user) {
+            loadItems();
+        }
     }, [user]);
 
     if (!user) {
